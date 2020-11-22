@@ -1,0 +1,19 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "name": "Rin Nohara",
+            "salary": 2500000
+        },
+        {
+            "id": 2,
+            "name": "Kushina Uzumaki",
+            "salary": 3000000
+        },
+        {
+            "id": 3,
+            "name": "Konan",
+            "salary": 2750000
+        }
+    ]
+}
