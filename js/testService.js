@@ -3,14 +3,16 @@ function makePromiseCall(methodType, url, async = true, data = null) {
         let xhr = new XMLHttpRequest();
         xhr.onload = function () {
             console.log(methodType + " state change called. Ready state : ", xhr.readyState, " Status : ", xhr.status);
-            if (xhr.status === 200 || xhr.status === 201) {
-                resolve(xhr.responseText);
-            } else if (xhr.status >= 400) {
-                reject({
-                    status: xhr.status,
-                    statusText: xhr.statusText
-                });
-                console.log(`Error occured, status : ${reject.status}, statusText : ${reject.statusText}`);
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200 || xhr.status === 201) {
+                    resolve(xhr.responseText);
+                } else if (xhr.status >= 400) {
+                    reject({
+                        status: xhr.status,
+                        statusText: xhr.statusText
+                    });
+                    console.log("Error occured");
+                }
             }
         }
         xhr.onerror = function () {
@@ -26,6 +28,6 @@ function makePromiseCall(methodType, url, async = true, data = null) {
             xhr.send(JSON.stringify(data));
         }
         else xhr.send();
-        console.log(methodType + " request sent to the server at : ", showTime());
+        console.log(methodType + " request sent to the server");
     });
 }
