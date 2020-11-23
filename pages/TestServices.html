@@ -17,8 +17,8 @@
     <div id="post_service"></div>
     <script>
         const getElement = document.querySelector('#get_service');
-        const getURL = "http://localhost:3000/employees/1";
-        makePromiseCall("GET", getURL, true)
+        const getURL = "http://localhost:3000/EmployeePayrollDB/1";
+        makeServiceCall("GET", getURL, true)
             .then(responseText => {
                 getElement.textContent = "Get User Data: " + responseText;
             })
@@ -27,8 +27,8 @@
             });
 
         const deleteElement = document.querySelector('#delete_service');
-        const deleteURL = "http://localhost:3000/employees/3";
-        makePromiseCall("DELETE", deleteURL, false)
+        const deleteURL = "http://localhost:3000/EmployeePayrollDB/3";
+        makeServiceCall("DELETE", deleteURL, false)
             .then(responseText => {
                 deleteElement.textContent = "Delete User Data: " + responseText;
             })
@@ -36,10 +36,20 @@
                 deleteElement.textContent = "DELETE error status: " + JSON.stringify(error);
             });
 
+        const empPayrollData = {
+            _name: "Amarpa Shashanka Keerthi Kumar",
+            _gender: "female",
+            _department: [
+                "Sales"
+            ],
+            _salary: "400000",
+            _startDate: "29 Oct 2019",
+            _note: "",
+            _profilePic: "../assets/profile-images/Ellipse -1.png",
+        }
         const postElement = document.querySelector("#post_service");
-        const postURL = "http://localhost:3000/employees";
-        const empData = { "name": "Hinata Hyuga", "salary": 2850000 };
-        makePromiseCall("POST", postURL, true, empData,)
+        const postURL = "http://localhost:3000/EmployeePayrollDB";
+        makeServiceCall("POST", postURL, true, empPayrollData)
             .then(responseText => {
                 postElement.textContent = "Post User Data: " + responseText;
             })
