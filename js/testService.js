@@ -1,8 +1,3 @@
-showTime = () => {
-    const date = new Date();
-    return date.getHours() + "hrs" + date.getMinutes() + "mins" + date.getSeconds() + "sec";
-}
-
 function makePromiseCall(methodType, url, async = true, data = null) {
     return new Promise(function (resolve, reject) {
         let xhr = new XMLHttpRequest();
