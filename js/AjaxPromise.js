@@ -50,7 +50,7 @@ makePromiseCall("DELETE", deleteURL, false).
         console.log("DELETE error status ", JSON.stringify(error));
     })
 
-const postURL = "http://localhost:3000/employees/";
+const postURL = "http://localhost:3000/employees";
 const empData = { "name": "Hanabi Hyuga", "salary": 2850000 };
 makePromiseCall("POST", postURL, true, empData,).
     then(responseText => {
